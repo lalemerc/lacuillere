@@ -1,0 +1,38 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body{
+  margin:20px 0px;
+  margin: auto;
+  width: 700px;
+}
+
+td{
+  padding: 5px 10px;
+}
+th{
+  padding: 5px 10px;
+  background-color: #DDDDDD;
+}
+
+h1{
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.btn-primary {
+  color: #ffffff;
+  background-color: #628FAD;
+  border-color: #D3E0E8;
+}
+
+.open .dropdown-toggle.btn-primary {
+  color: #ffffff;
+  background-color: #4C86AD;
+  border-color: #D3E0E8;
+}
+
+.rating-btn{
+  width:20px;
+}

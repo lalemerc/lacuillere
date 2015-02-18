@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<h1>Restaurant</h1>
 <p>
   <strong>Name:</strong>
   <%= @restaurant.name %>
@@ -21,5 +21,39 @@
 </p>
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %> |
-<%= link_to 'Reviews', restaurant_reviews_path(@restaurant) %>
+<%= link_to 'Back', restaurants_path %>
+<!-- <%= link_to 'Reviews', restaurant_reviews_path(@restaurant) %> -->
+
+<h1>Listing Reviews</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>Rating</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @restaurant.reviews.each do |review| %>
+      <tr>
+        <td><%= review.content %></td>
+        <td><%= review.rating %></td>
+        <td><%= link_to 'delete', restaurant_review_path(@restaurant, review), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<h1>Write your review</h1>
+<%= simple_form_for [@restaurant, @restaurant.reviews.new] do |f| %>
+<!--  @ restaurant.reviews.new = @ reviews apr reconnu ici mais donc Review.new
+ -->
+  <%= f.input :content, :placeholder => "Write your review here" %>
+  <%= f.input :rating, collection: Review::RATING %>
+  <br>
+  <%= f.button :submit, {class: "btn btn-primary"} %>
+<% end %>

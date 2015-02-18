@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'reviews/create'
 
   resources :restaurants do
-    resources :reviews, only: [:index, :new, :create]
+    resources :reviews, only: [:index, :new, :create, :destroy]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
